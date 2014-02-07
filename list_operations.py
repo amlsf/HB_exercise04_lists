@@ -244,16 +244,60 @@ Failed Method
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
+    for item in input_list:
+        if item == value:
+            return True
+# Need to put return False statement outside of For Loop, if True will break with return True
+    return False
+
+"""
+SUCCESSFUL METHOD 2
+
     for i in range(len(input_list)):
         if input_list[i] == value:
             return True
+    return False
+"""
+
+"""
+SUCCESSFUL METHOD 3
+    i = 0
+        ## VVV Expression goes here
+    while i < len(input_list):
+        if input_list[i] == value:
+            return True
             break
-        else: 
-            return False
+        i += 1
+    return False
+
+"""
 
 
 def custom_equality(some_list, another_list):
     """custom_equality(some_list, another_list) imitates
     (some_list == another_list)
     """
-    pass
+    if some_list == another_list: 
+        return True
+    else: 
+        return False
+
+
+"""
+SUCCESSFUL (but super verbose) METHOD
+    counter = 0
+
+    if len(some_list) == len(another_list):
+        for i in range(len(some_list)):
+            if some_list[i] == another_list[i]:
+                counter += 1
+            else: 
+                counter += 0
+    else: 
+        return False
+
+    if counter == len(some_list):
+        return True
+    else: 
+        return False
+"""

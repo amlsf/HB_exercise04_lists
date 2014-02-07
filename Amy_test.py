@@ -17,6 +17,8 @@ def custom_pop(input_list):
 
 #======================================================================================================================
 
+##### PROBLEM #1
+
 def custom_reverse(input_list):
     """ custom_reverse(input_list) imitates input_list.reverse()"""
     new_list = []
@@ -41,20 +43,25 @@ print input_list
 print custom_reverse(input_list)
 
 
-print "_" * 20
 
+
+##### PROBLEM #2
 
 # This works except when it is False, it returns None. How do I get it to return a True? 
+# Close just need to add a return False at the end outside of the for loop
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
     for i in range(len(input_list)):
         if input_list[i] == value:
             return True
 
+
 print custom_contains(input_list, 5)
 
 
-print "_" * 20
+
+
+##### PROBLEM #3
 
 # Doesn't work, only returns false
 def custom_equality(some_list, another_list):
@@ -68,12 +75,14 @@ def custom_equality(some_list, another_list):
             if some_list[i] == another_list[i]:
                 counter += 1
             else: 
-                counter += 0 
+                counter += 0
+    else: 
+        return False
 
-if counter == len(some_list):
-return True
-else: 
-return False
+    if counter == len(some_list):
+        return True
+    else: 
+        return False
 
 
 print custom_equality(input_list, second_list)
