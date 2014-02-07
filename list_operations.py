@@ -173,13 +173,25 @@ def custom_count(input_list, value):
     
 
 def custom_reverse(input_list):
-    """custom_reverse(input_list) imitates input_list.reverse()"""
-    x = input_list[::-1]
-    return x
+    """ custom_reverse(input_list) imitates input_list.reverse()"""
+    new_list = []
+
+    for i in range(len(input_list)-1,1):
+        new_item = custom_pop(input_list)
+        custom_append(new_list, [new_item])
+
+# Need to fix this and understand why this doesn't work in memory???
+#   Why doesn't this worK: input_list = input_list[::-1]? What's a better way to do this??
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
-    pass
+    for i in range(len(input_list)):
+        if input_list[i] == value:
+            return True
+            break
+        else: 
+            return False
+
 
 def custom_equality(some_list, another_list):
     """custom_equality(some_list, another_list) imitates
