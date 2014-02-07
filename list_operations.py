@@ -174,14 +174,73 @@ def custom_count(input_list, value):
 
 def custom_reverse(input_list):
     """ custom_reverse(input_list) imitates input_list.reverse()"""
-    new_list = []
+    for i in range(len(input_list)):
+        move = custom_pop(input_list)
+        custom_insert(input_list,i,move)
+# Why do I need a return here? 
+    return input_list
 
-    for i in range(len(input_list)-1,1):
+"""    
+SUCCESSFUL METHOD 2
+    tmp = 0
+    counter_bkwd = len(input_list)-1
+
+    for i in range(len(input_list)/2):
+
+        tmp = input_list[i]
+
+        input_list[i] = input_list[counter_bkwd]
+        input_list[counter_bkwd] = tmp
+
+        i += 1        
+        counter_bkwd = counter_bkwd - 1
+"""
+
+"""
+SUCCESFUL METHOD 2 WITH PRINT STATEMENTS
+Successful Method 2   
+    tmp = 0
+    counter_bkwd = len(input_list)-1
+
+    for i in range(len(input_list)/2):
+        print "START OF LOOP: this is the backwards counter: %r" % counter_bkwd
+        print "This is the list before modification: %r" % input_list
+
+        tmp = input_list[i]
+        print "this is the stored first variable to move to the end: %r" % tmp
+
+        input_list[i] = input_list[counter_bkwd]
+        print "This is the modified list with the last moved to front: %r" % input_list
+
+        input_list[counter_bkwd] = tmp
+        print "This is the modified list with the front moved to the back: %r" % input_list
+
+        i += 1
+        print "This is the forwards counter: %r" % i
+        
+        counter_bkwd = counter_bkwd - 1
+        print "This is the backwards counter: %r" % counter_bkwd
+"""
+
+"""
+Failed Method
+    for i in range(len(input_list)-1,-1,-1):
+        print "The range is:"
+        print range(len(input_list)-1,-1,-1)
+
+        print "The new item is:"
         new_item = custom_pop(input_list)
-        custom_append(new_list, [new_item])
+        print new_item
+
+        print "This is the new appended list:"
+        custom_append(new_list, new_item)
+        print new_list
+"""
 
 # Need to fix this and understand why this doesn't work in memory???
 #   Why doesn't this worK: input_list = input_list[::-1]? What's a better way to do this??
+#           Because it creates a copy? 
+
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
