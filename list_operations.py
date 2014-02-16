@@ -172,6 +172,8 @@ def custom_count(input_list, value):
     return counter
     
 
+# TODO why does this function require the original list to be changed in memory, while others can accept copies? (oh right, it was because of the testing python program somehow)
+# Because the test_list_operations used "self" to reference itself in memory
 def custom_reverse(input_list):
     """ custom_reverse(input_list) imitates input_list.reverse()"""
     for i in range(len(input_list)):
@@ -224,14 +226,15 @@ Successful Method 2
 
 """
 Failed Method
+
+def custom_reverse(input_list):
+    new_list = []
     for i in range(len(input_list)-1,-1,-1):
         print "The range is:"
         print range(len(input_list)-1,-1,-1)
-
-        print "The new item is:"
+        print "The last term to pop is: ", input_list[i]
         new_item = custom_pop(input_list)
-        print new_item
-
+        print "The new item is:", new_item
         print "This is the new appended list:"
         custom_append(new_list, new_item)
         print new_list
