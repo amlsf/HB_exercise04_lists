@@ -172,8 +172,15 @@ def custom_count(input_list, value):
     return counter
     
 
-# TODO why does this function require the original list to be changed in memory, while others can accept copies? (oh right, it was because of the testing python program somehow)
+# TODO - try this with the input_list = [::-1] (Does that return the list same place in memory or a copy?)
+# why does this function require the original list to be changed in memory, while others can accept copies? (oh right, it was because of the testing python program somehow)
 # Because the test_list_operations used "self" to reference itself in memory
+
+# Need to fix this and understand why this doesn't work in memory???
+# TODO  Why doesn't this worK: input_list = input_list[::-1]? What's a better way to do this??
+#           Because it creates a copy? 
+
+
 def custom_reverse(input_list):
     """ custom_reverse(input_list) imitates input_list.reverse()"""
     for i in range(len(input_list)):
@@ -181,6 +188,18 @@ def custom_reverse(input_list):
         custom_insert(input_list,i,move)
 # Why do I need a return here? 
     return input_list
+
+"""
+TODO - look at this
+ANOTHER METHOD
+def custom_reverse(input_list):
+    """custom_reverse(input_list) imitates input_list.reverse()"""
+    half_length = custom_len(input_list) // 2
+    for i in range(half_length):
+        # Swap the corresponding pair of values in place.
+        input_list[i], input_list[-i-1] = input_list[-i-1], input_list[i]
+"""
+
 
 """    
 SUCCESSFUL METHOD 2
@@ -240,9 +259,6 @@ def custom_reverse(input_list):
         print new_list
 """
 
-# Need to fix this and understand why this doesn't work in memory???
-#   Why doesn't this worK: input_list = input_list[::-1]? What's a better way to do this??
-#           Because it creates a copy? 
 
 
 def custom_contains(input_list, value):
